@@ -52,7 +52,10 @@ class NewLnkDriver:
         input_username = WebDriverWait(driver, utils.TIMEOUT).until(
           EC.presence_of_element_located((By.XPATH, utils.USER_TEXTBOX))
         )
-        input_password = driver.find_element(By.XPATH, utils.PASS_TEXTBOX)
+        
+        input_password = WebDriverWait(driver, utils.TIMEOUT).until(
+        EC.presence_of_element_located((By.XPATH, utils.PASS_TEXTBOX))
+        )
         
         #Fill up username and password
         input_username.send_keys( self.__getUsername() )

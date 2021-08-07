@@ -45,19 +45,22 @@ class NewLnkCrawler:
         
             #Scroll down to page end
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-            input_username = WebDriverWait(driver, utils.TIMEOUT).until(
+            
+            WebDriverWait(driver, utils.TIMEOUT).until(
             EC.presence_of_element_located((By.XPATH, utils.XPATH_HEADCOUNT_CHART))
             )
             
             xpath=utils.XPATH_HEADCOUNT_CHART
             
-            total_openings = driver.find_element_by_xpath( xpath )# +'//text[@class="highcharts-title"]/tspan')#.text
+            total_openings = driver.find_element_by_xpath( xpath + '//*[local-name()="svg"]/*[local-name()="text" and @class="highcharts-title"]/*[local-name()="tspan"]').text
             print(total_openings)
-            #q_period = driver.find_element_by_xpath(xpath+'/text[@class="highcharts-subtitle"]/tspan').text
-            #print(q_period)
+            q_period = driver.find_element_by_xpath( xpath + '//*[local-name()="svg"]/*[local-name()="text" and @class="highcharts-subtitle"]/*[local-name()="tspan"]').text
+            print(q_period)
             
             #Sales job openings window needs a mouse hover action
-            #sales_job_chart_section = driver.find_element_by_xpath(xpath+'//path[@class="highcharts-point highcharts-color-2 org-insights__highcharts-function-color-3"]')
+            
+            sales_job_chart_section = driver.find_element_by_xpath( xpath + '//*[local-name()="svg"]/*[local-name()="g"]/*[local-name()="path"]')#' and @class="highcharts-point highcharts-color-1 org-insights__highcharts-function-color-2"]')
+            print(sales_job_chart_section)
             #actions = ActionChains(driver)
             #actions.move_to_element(sales_job_chart_section).perform()
 
