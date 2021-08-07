@@ -56,9 +56,17 @@ try:
     import LnkDriver
 except ModuleNotFoundError:
     missing_packages.append("LnkDriver.py")
+    
+try:
+    import LnkCrawler
+except ModuleNotFoundError:
+    missing_packages.append("LnkCrawler.py")
 
 utils.moduleNotFoundExit(missing_packages)
 
 Driver1 = LnkDriver.NewLnkDriver('diavelandiaca@unal.edu.co', '57FtjCIbbZ')
 Driver1.startSession()
+
+MyCrawler = LnkCrawler.NewLnkCrawler(Driver1)
+MyCrawler.scanCompaniesSalesOpenings(['google'])
 
