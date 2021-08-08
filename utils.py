@@ -27,6 +27,8 @@ PASS_TEXTBOX  = '//main//div[@class="sign-in-form-container"]//input[@name="sess
 LOGIN_BUTTON  = '//main//div[@class="sign-in-form-container"]//button[@class="sign-in-form__submit-button"]'
     #xml company chart mapping
 XPATH_HEADCOUNT_CHART = '//main//section[@class="org-insights-module org-insights-functions-growth org-insights-jobs-module"]/div[@class="org-premium-container premium-accent-bar artdeco-card"]/div[@class="org-premium-container__content"]/div[@class="org-insights-functions-growth__content"]/div[@class="org-insights-functions-growth__chart"]//div[@class="highcharts-wrapper ember-view"]/div[@class="chart-container"]/div[@class="highcharts-container "]'
+    #Dataframe conformation
+COLNAMES=['Timestamp', 'Q_period','Total_openings', 'Sales_openings']
 
 #Exception messages    
 def moduleNotFoundExit(missing_packages):

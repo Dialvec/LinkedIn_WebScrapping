@@ -5,6 +5,7 @@ Created on Sat Aug  7 06:22:09 2021
 @author: Dialvec
 """
 import utils
+import pandas as pd
 import LnkDriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -26,6 +27,8 @@ class NewLnkCrawler:
     
     #loops over companies list to gather data from the premium job openings chart
     def scanCompaniesSalesOpenings(self, Companies):
+        
+        df_chunk = pd.DataFrame( columns=utils.COLNAMES )
         
         timestamp = utils.today()
     
@@ -66,5 +69,13 @@ class NewLnkCrawler:
 
             sales_openings = driver.find_element_by_xpath(xpath + '/div[@class="highcharts-label highcharts-tooltip highcharts-color-1"]/span/p/strong').text
             print(sales_openings)
+            
+            df_chunk = df_chunk.append({utils.COLNAMES[0] : timestamp,
+                                        utils.COLNAMES[1] : q_period,
+                                        utils.COLNAMES[2] : total_openings,
+                                        utils.COLNAMES[3] : sales_openings
+                                        })
+        
+        return df_chunk
             
             
