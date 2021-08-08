@@ -59,12 +59,12 @@ class NewLnkCrawler:
             
             #Sales job openings window needs a mouse hover action
             
-            sales_job_chart_section = driver.find_element_by_xpath( xpath + '//*[local-name()="svg"]/*[local-name()="g"]/*[local-name()="path"]')#' and @class="highcharts-point highcharts-color-1 org-insights__highcharts-function-color-2"]')
-            print(sales_job_chart_section)
-            #actions = ActionChains(driver)
-            #actions.move_to_element(sales_job_chart_section).perform()
+            sales_job_chart_section = driver.find_element_by_xpath( xpath + '//*[local-name()="svg"]/*[local-name()="g"]/*[local-name()="g" and @class="highcharts-series highcharts-series-0 highcharts-pie-series highcharts-tracker"]/*[local-name()="path" and @class="highcharts-point highcharts-color-1 org-insights__highcharts-function-color-2"]')
+            #print(sales_job_chart_section)
+            actions = ActionChains(driver)
+            actions.move_to_element(sales_job_chart_section).perform()
 
-            #sales_openings = driver.find_element_by_xpath(xpath+'//p[@class="org-insights-bullet"]/strong()').text
-            #print(sales_openings)
+            sales_openings = driver.find_element_by_xpath(xpath + '/div[@class="highcharts-label highcharts-tooltip highcharts-color-1"]/span/p/strong').text
+            print(sales_openings)
             
             

@@ -64,7 +64,7 @@ except ModuleNotFoundError:
 
 utils.moduleNotFoundExit(missing_packages)
 
-Driver1 = LnkDriver.NewLnkDriver('diavelandiaca@unal.edu.co', '57FtjCIbbZ')
+Driver1 = LnkDriver.NewLnkDriver('daggercrow@gmail.com', '57FtjCIbbZ')
 Driver1.startSession()
 
 MyCrawler = LnkCrawler.NewLnkCrawler(Driver1)

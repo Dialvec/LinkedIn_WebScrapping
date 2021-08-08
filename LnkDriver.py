@@ -34,6 +34,8 @@ class NewLnkDriver:
         opts = Options()
         opts.add_argument(utils.OPTS_ARGUMENT)
         self.__webdriver = webdriver.Chrome(utils.CHROME_DRIVER, options = opts)
+        #self.__webdriver = webdriver.firefox(utils.FIREFOX_DRIVER)
+        
         
     #Browses to company's linkedin headcount page
     def browseCompany(self, Company):

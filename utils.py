@@ -11,7 +11,8 @@ from datetime import date
     #Browser Parameters
 LOGIN_URL     = "https://www.linkedin.com"
 OPTS_ARGUMENT = 'user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/71.0.3578.80 Chrome/71.0.3578.80 Safari/537.36'
-CHROME_DRIVER = './chromedriver.exe'
+CHROME_DRIVER = './webdrivers/chromedriver.exe'
+FIREFOX_DRIVER= './webdrivers/geckodriver.exe'
 TIMEOUT       = 30
 SCROLL_DOWN_WAIT = 3
 LNK_COMPANY   = 'https://www.linkedin.com/company/'
