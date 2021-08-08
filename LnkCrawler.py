@@ -71,9 +71,10 @@ class NewLnkCrawler:
             print(sales_openings)
             
             df_chunk = df_chunk.append({utils.COLNAMES[0] : timestamp,
-                                        utils.COLNAMES[1] : q_period,
-                                        utils.COLNAMES[2] : total_openings,
-                                        utils.COLNAMES[3] : sales_openings
+                                        utils.COLNAMES[1] : company,
+                                        utils.COLNAMES[2] : q_period,
+                                        utils.COLNAMES[3] : total_openings,
+                                        utils.COLNAMES[4] : sales_openings
                                         })
         
         return df_chunk
