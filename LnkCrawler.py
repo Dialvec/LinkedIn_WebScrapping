@@ -56,9 +56,10 @@ class NewLnkCrawler:
             xpath=utils.XPATH_HEADCOUNT_CHART
             
             total_openings = driver.find_element_by_xpath( xpath + '//*[local-name()="svg"]/*[local-name()="text" and @class="highcharts-title"]/*[local-name()="tspan"]').text
-            print(total_openings)
+            #print(total_openings)
+            
             q_period = driver.find_element_by_xpath( xpath + '//*[local-name()="svg"]/*[local-name()="text" and @class="highcharts-subtitle"]/*[local-name()="tspan"]').text
-            print(q_period)
+            #print(q_period)
             
             #Sales job openings window needs a mouse hover action
             
@@ -68,15 +69,15 @@ class NewLnkCrawler:
             actions.move_to_element(sales_job_chart_section).perform()
 
             sales_openings = driver.find_element_by_xpath(xpath + '/div[@class="highcharts-label highcharts-tooltip highcharts-color-1"]/span/p/strong').text
-            print(sales_openings)
+            #print(sales_openings)
             
             df_chunk = df_chunk.append({utils.COLNAMES[0] : timestamp,
                                         utils.COLNAMES[1] : company,
                                         utils.COLNAMES[2] : q_period,
                                         utils.COLNAMES[3] : total_openings,
                                         utils.COLNAMES[4] : sales_openings
-                                        })
-        
+                                        }, ignore_index=True)
+        #print(df_chunk)
         return df_chunk
             
             

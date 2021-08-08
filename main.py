@@ -38,16 +38,6 @@ except ModuleNotFoundError:
     missing_packages.append("datetime")
     
 try:
-    import scrapy
-except ModuleNotFoundError:
-    missing_packages.append("scrapy")
-    
-try:
-    import bs4
-except ModuleNotFoundError:
-    missing_packages.append("bs4")
-    
-try:
     import selenium
 except ModuleNotFoundError:
     missing_packages.append("selenium")
@@ -62,11 +52,25 @@ try:
 except ModuleNotFoundError:
     missing_packages.append("LnkCrawler.py")
 
+try:
+    import Database
+except ModuleNotFoundError:
+    missing_packages.append("Database.py")
+
 utils.moduleNotFoundExit(missing_packages)
 
-Driver1 = LnkDriver.NewLnkDriver('daggercrow@gmail.com', '57FtjCIbbZ')
-Driver1.startSession()
+Database = Database.NewDatabase(df_path = utils.FILE_PATH)
 
-MyCrawler = LnkCrawler.NewLnkCrawler(Driver1)
-MyCrawler.scanCompaniesSalesOpenings(['google'])
+Driver = LnkDriver.NewLnkDriver('daggercrow@gmail.com', '57FtjCIbbZ')
+Driver.startSession()
+
+MyCrawler = LnkCrawler.NewLnkCrawler(Driver)
+df_chunk = MyCrawler.scanCompaniesSalesOpenings(['google', 'microsoft', 'amazon'])
+
+Database.add_chunk(df_chunk)
+Database.save()
+
+Driver.endSession()
+
+print("Excecution finished")
 

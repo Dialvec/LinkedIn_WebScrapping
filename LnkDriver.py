@@ -76,5 +76,5 @@ class NewLnkDriver:
         
         
     def endSession(self):
-        self.driver.close()
-        self.driver.quit()
+        self.getWebDriver().close()
+        self.getWebDriver().quit()
