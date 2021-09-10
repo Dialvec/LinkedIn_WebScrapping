@@ -1,5 +1,4 @@
-# OliveTree
- Data Engineer - Technical Test for OliveTree
+# LinkedIn Premium Web Scrapping example
 
  The Lnk_scrapper is a class based system that extracts specific information from different companies' LinkedIn profiles
  and stores the information in a .csv file that works as a results database. It is based on selenium for the web scrapping
